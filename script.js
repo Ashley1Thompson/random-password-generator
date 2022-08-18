@@ -27,6 +27,14 @@ function randomShuffle(arr) {
 function promptUser() {
   var passwordLength = window.prompt('How many characters do you want?')
 //set conditionals to be more than 8 less that 128
+if(passwordLength < 8) {
+  alert('Password needs to be at least 8 characters')
+  return 
+} 
+if(passwordLength > 128) {
+  alert('Password needs to be less than 128 characters')
+  return 
+} 
   var confirmNumbers = window.confirm('Do you want numbers in your password?')
   var confirmSpecialCharacters = window.confirm('Do you want special characters in your password?')
   var confirmUppercase = window.confirm('Do you want upper case letters in your password?')
