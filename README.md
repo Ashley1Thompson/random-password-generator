@@ -11,7 +11,7 @@
 ## Description
 An app to generate a random password based on user-selected criteria. 
 ## Installation
-Navigate to 
+Navigate to [Password Generator](https://ashley1thompson.github.io/random-password-generator/)
 ## Usage
 1. Click "Generate Password" button. 2. Follow prompts to select criteria for new password. 
 ## Features
