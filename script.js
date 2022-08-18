@@ -18,6 +18,12 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+function randomShuffle(arr) {
+  var randomIndex = Math.floor(Math.random()*arr.length)
+  var trueValue = arr[randomIndex]
+  return trueValue;
+}
+
 function promptUser() {
   var passwordLength = window.prompt('How many characters do you want?')
 //set conditionals to be more than 8 less that 128
@@ -26,5 +32,40 @@ function promptUser() {
   var confirmUppercase = window.confirm('Do you want upper case letters in your password?')
   var confirmLowerCase = window.confirm('Do you want lower case letters in your password?')
 
-  
+  var confirmChoices = {
+    length: passwordLength,
+    numbers: confirmNumbers,
+    specialCharacters: confirmSpecialCharacters,
+    uppercase: confirmUppercase,
+    lowercase: confirmLowerCase
+  }
+  console.log(confirmChoices);
+  return confirmChoices;
+
+}
+
+function generatePassword() {
+  var userAnswers = promptUser();
+  var characterPool = [];
+  var finalPassword = [];
+
+  if(userAnswers.numbers === true) {
+    characterPool = characterPool.concat(numberArray)
+  }
+  if(userAnswers.specialCharacters === true) {
+    characterPool = characterPool.concat(specialArray)
+  }
+  if(userAnswers.lowercase === true) {
+    characterPool = characterPool.concat(lowerCaseArray)
+  }
+  if(userAnswers.uppercase === true) {
+    characterPool = characterPool.concat(upperCaseArray)
+  }
+
+  for(let i = 0; i < userAnswers.length; i++) {
+    var randomPool = randomShuffle(characterPool)
+    finalPassword.push(randomPool)
+  }
+  console.log(finalPassword)
+  return finalPassword.join('')
 }
