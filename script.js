@@ -40,6 +40,11 @@ if(passwordLength > 128) {
   var confirmUppercase = window.confirm('Do you want upper case letters in your password?')
   var confirmLowerCase = window.confirm('Do you want lower case letters in your password?')
 
+  if(!confirmNumbers && !confirmSpecialCharacters && !confirmUppercase && !confirmLowerCase) {
+    alert('Password needs at least one character selection')
+    return 
+  } 
+
   var confirmChoices = {
     length: passwordLength,
     numbers: confirmNumbers,
